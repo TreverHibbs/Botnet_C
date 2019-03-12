@@ -15,7 +15,7 @@ int init_channel (char *ip, int port, char *name){
 
 		perror("socket:");
 
-		exit(1);
+		return(-1);
 	}
 
 	int connection_status = connect(socket_return, (struct sockaddr *) &server, sizeof(server));
@@ -24,7 +24,7 @@ int init_channel (char *ip, int port, char *name){
 
 		perror("connect:");
 			
-		exit(1);
+		return(-2);
 	}
 
 	snprintf(msg, CMD_LENGTH, "%s\n", "plz work");
